@@ -1,0 +1,6 @@
+store.json
+*.log
+.vscode/
+.idea/
+.claude/
+CLAUDE.md
