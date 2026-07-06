@@ -577,7 +577,7 @@ function Invoke-SxTui {
             $personal = @($store.secrets['~'].Keys | Sort-Object)
             $projects = @($store.projects.Keys    | Sort-Object)
             # on macOS the Touch ID vault is pinned on top of the right pane
-            $projRows = if ($script:Platform -eq 'mac') { @('vault') + $projects } else { $projects }
+            $projRows = @(if ($script:Platform -eq 'mac') { @('vault') + $projects } else { $projects })
 
             if ($state.SelPersonal -ge $personal.Count) { $state.SelPersonal = [Math]::Max(0, $personal.Count - 1) }
             if ($state.SelProject  -ge $projRows.Count) { $state.SelProject  = [Math]::Max(0, $projRows.Count - 1) }
