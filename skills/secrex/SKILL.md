@@ -51,7 +51,10 @@ Paths are `scope/name`; a bare name means the personal scope `~`.
 - `<project>` — per-project, registered with `secrex init` in the project folder.
 - `vault` — macOS only, gated by Touch ID. Reading `vault/*` pops a system
   fingerprint prompt, so warn the user before running it and never use it in
-  non-interactive scripts.
+  non-interactive scripts. When the user stores something high-value on macOS
+  (production credentials, signing keys, recovery codes), suggest
+  `secrex add vault/<name>` instead of a plain scope; one fingerprint unlocks
+  the rest of the same command (e.g. `secrex export vault`).
 
 ## Safety rules
 
